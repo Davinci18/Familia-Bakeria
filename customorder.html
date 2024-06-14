@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia Bakeria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="customstyle.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="ourproducts.html" class="nav-link">Our Products!</a>
+            <a href="ourstory.html" class="nav-link">Our Story</a>
+            <a href="index.html"><img src="logo.jpeg" alt="Logo" class="logo"></a>
+            <a href="#" class="nav-link">Login</a>
+            <a href="#" class="cart-icon"><img src="shopping_cart.png" alt="Cart" id="cart-icon"></a>
+        </nav>
+    </header>
+    <main>
+       
+        <section class="custom-order">
+            <h2>Welcome to your custom order!</h2>
+            <form action="" method="post" class="order-form">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="custom-order">Enter a custom order to fit your desire! No need to sugar coat anything.</label>
+                    <textarea id="custom-order" name="custom-order" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </section>
+
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Familia Bakeria</h3>
+                <p>131 Rondebult Road</p>
+                <p>Boksburg, GP 1054</p>
+                <p>(082) 824-0245</p>
+            </div>
+            <div class="footer-map">
+                <iframe title="google maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.3585109923267!2d28.217759515083702!3d-26.168132983457497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950e2ad9b0d7e1%3A0x760affd2df037a43!2s131%20Rondebult%20Rd%2C%20Boksburg%20North%2C%20Boksburg%2C%201459%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1629126546781!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="footer-social">
+                <p><h3>FOLLOW US!</h3></p>
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank"><img src="instagramicon.png" alt="Instagram"></a>
+                    <a href="https://facebook.com" target="_blank"><img src="facebook.png" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Familia Bakeria</p>
+    </footer>
+
+<!--Login modal-->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Welcome to Familia Bakeria</h2>
+            <form method="post"  action="phpconnection.php">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign in</button>
+            </form>
+            <div class="modal-footer">
+                <a href="#" class="forgot-password-link">Forgot Password?</a>
+                <a href="#" class="create-account-link">Create account</a>
+            </div>
+        </div>
+    </div>
+
+
+ <!--Forgot password modal-->
+ <div id="forgotPasswordModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Forgot your password?</h2>
+        <p>Please enter the email address you would like your password reset information to be sent to.</p>
+        <form action="phpconnection.php" method="post">
+            <div class="form-group">
+                <label for="reset-email">Enter email address: </label>
+                <input type="email" id="reset-email" name="reset-email" required>
+            </div>
+            <button type="submit" class="submit-btn">Reset Password</button>
+        </form>
+    </div>
+</div>
+
+<!-- Create account modal-->
+
+<div id="createAccountModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Create Your Account!</h2>
+        <form method="post" action="phpconnection.php">
+            <div class="form-group">
+                <label for="new-email">Email Address</label>
+                <input id="new-email" name="new-email" required>
+            </div>
+            <div class="form-group">
+                <label for="new-password">Password</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Cart modal for items-->
+
+<div class="cart-modal" id="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close">&times;</span>
+        <h2>Cart</h2>
+        <div id="cart-items" class="cart-items">
+            <!-- This is the format to display cart items-->
+            <div class="cart-item" id="cart-item-template" style="display: none;">
+                <img src="" alt="Product selected">
+                <div class="cart-item-info">
+                    <h4 class="item-name"></h4>
+                    <p class="item-price"></p>
+                    <p class="item-quantity"></p>
+                </div>
+                <button class="btn-remove">Remove</button>
+            </div>
+        </div>
+        <div class="cart-total">
+            <h3>Total: R<span id="cart-total">0.00</span></h3>
+        </div>
+        <button class="purchase-btn">Purchase</button>
+    </div>
+</div>
+
+    
+    <script src="scripts.js"></script>
+    <script src="addcart.js"></script>
+</body>
+</html>

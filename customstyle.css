@@ -1,0 +1,58 @@
+/* Main section styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('bakery4.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Custom Order Section */
+.custom-order {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: black;
+}
+
+.custom-order h2{
+    text-align: center;
+}
+
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    padding: 1rem;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #bb6d6d;
+}
