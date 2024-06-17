@@ -91,3 +91,4 @@ var message = "Thank you for submitting a custom order! We will check our databa
 sendbtn.onclick = function(){
     confirm(message);
 }
+

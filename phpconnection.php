@@ -18,13 +18,22 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // Hash the password before storing (recommended for security)
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    //checking if user is in database
+    $sql = "SELECT * FROM testing WHERE email = '$email'";
+    $result = mysqli_query($conn,$sql);
 
-    $sql = "INSERT INTO testing (email, password) VALUES ('$email', '$hashed_password')";
-
-    mysqli_query($conn, $sql);
-     
+    if(mysqli_num_rows($result) > 0){
+        //email was found, now verify password
+        $password_row = mysqli_fetch_assoc($result);
+        //Now you compare the password the user gave($password) with the password in the database which is stored under 'password'
+        if($password == $password_row['password']){
+            echo "login succesful!";
+        }else{
+            echo "Invalid password.";
+        }
+    }else{
+        echo "The email was not found.";
+    }
 }
 
 // Handle create account form submission
@@ -32,13 +41,20 @@ if (isset($_POST['new-email']) && isset($_POST['new-password'])) {
     $new_email = mysqli_real_escape_string($conn, $_POST['new-email']);
     $new_password = mysqli_real_escape_string($conn, $_POST['new-password']);
 
-    // Hash the password before storing (recommended for security)
-    $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+    $sql = "SELECT * FROM testing WHERE email = '$new_email'";
+    $result = mysqli_query($conn,$sql);
 
-    $sql = "INSERT INTO testing (email, password) VALUES ('$new_email', '$hashed_new_password')";
-
-    mysqli_query($conn, $sql);
-    
+    if(mysqli_num_rows($result) > 0){
+        echo "This email already exists. Please eneter a different email.";
+    }else{
+        //since email doesnt exist create a new one with the given information
+        $sql_insert_acc = "INSERT INTO testing(email, password) VALUES ('$new_email','$new_password')";
+        if (mysqli_query($conn, $sql_insert_acc)) {
+            echo "success";
+        } else {
+            echo "Error: " . $sql_insert_acc . "<br>" . mysqli_error($conn);
+        }
+    }
 }
 
 // Handle forgot password form submission
