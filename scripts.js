@@ -17,14 +17,7 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal it will close
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-//This section is handling the "forgot password" in the login modal
+//This section is handling the display "forgot password" in the login modal
 
 var forgotmodal = document.getElementById("forgotPasswordModal");
 
@@ -41,6 +34,7 @@ closebtn.onclick = function(){
     forgotmodal.style.display = "none";
 }
 
+
 //This section is handling the "create account" in the login modal 
 
 var createaccountmodal = document.getElementById("createAccountModal");
@@ -56,6 +50,35 @@ createbtn.onclick = function(){
 
 loginclose.onclick = function(){
     createaccountmodal.style.display = "none";
+}
+
+//This is handling the sign in button
+
+var signin_btn = document.getElementsByClassName("signin_btn")[0];
+
+var sign_message = "You have signed in Successfully!";
+
+signin_btn.onclick = function(){
+    confirm(sign_message);
+}
+
+//This is handling the create account button
+var creat_acc_btn = document.getElementsByClassName("create-btn")[0];
+var create_message = "You have created an account!";
+
+creat_acc_btn.onclick = function(){
+    confirm(create_message);
+}
+
+
+//This section is handling the reset button for your password
+
+var resetbtn = document.getElementsByClassName("reset-submit-btn")[0];
+
+var reset_message = "We have sent you the forgot password email to the email you gave.";
+
+resetbtn.onclick = function(){
+    confirm(reset_message);
 }
 
 

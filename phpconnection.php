@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "familia_bakeria";
+$dbname = "test";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -21,7 +21,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     // Hash the password before storing (recommended for security)
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (email, password) VALUES ('$email', '$hashed_password')";
+    $sql = "INSERT INTO testing (email, password) VALUES ('$email', '$hashed_password')";
 
     mysqli_query($conn, $sql);
      
@@ -35,7 +35,7 @@ if (isset($_POST['new-email']) && isset($_POST['new-password'])) {
     // Hash the password before storing (recommended for security)
     $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (email, password) VALUES ('$new_email', '$hashed_new_password')";
+    $sql = "INSERT INTO testing (email, password) VALUES ('$new_email', '$hashed_new_password')";
 
     mysqli_query($conn, $sql);
     
