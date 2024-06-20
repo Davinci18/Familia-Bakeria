@@ -35,16 +35,25 @@ body {
     color: black;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 992px) {
     .navbar {
         flex-direction: row; /* making the navbar horizontal */
         height: auto;
         align-items: center; 
     }
+
+    .navbar-toggler {
+        order: 2; /* Change order to appear after the logo */
+    }
+
     .navbar-brand {
         margin-right: auto; /* This pushes the logo to the far left */
     }
 
+    .navbar-collapse {
+        flex-basis: auto;
+        order: 3; /* This ensures the collapsed menu appears last */
+    }
 }
 
 .navbar-toggler-icon{
