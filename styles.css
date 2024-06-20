@@ -14,7 +14,7 @@ body {
     align-items: center;
     background-color: #ff6f61;
     padding: 10px 20px;
-    height: 150px;
+    height: 180px;
     background-image: url('nav_bar_pattern1.jpg');
     background-repeat: repeat;
     position: relative;
@@ -28,6 +28,28 @@ body {
     border-style: solid;
     font-size: 20px;
     border-width: 5px;
+}
+
+.nav-link:hover,
+.nav-link:focus{
+    color: black;
+}
+
+@media (max-width: 990px) {
+    .navbar {
+        flex-direction: row; /* making the navbar horizontal */
+        height: auto;
+        align-items: center; 
+    }
+    .navbar-brand {
+        margin-right: auto; /* This pushes the logo to the far left */
+    }
+
+}
+
+.navbar-toggler-icon{
+    color: white;
+    background-color: black;
 }
 
 .logo {
@@ -46,21 +68,6 @@ body {
 #cart-icon {
     width:50px;
     height:auto;
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        height: auto;
-    }
-    .nav-link, .cart-icon {
-        margin: 5px 0;
-    }
-    .logo {
-        position: static;
-        transform: none;
-        margin: 10px 0;
-    }
 }
 
 .hero {
@@ -259,8 +266,6 @@ footer {
     color: #ff6f61;
 }
 
-
-
 .add-to-cart {
     background-color: #4CAF50;
     color: white;
@@ -382,5 +387,3 @@ footer {
 .checkout-btn:hover {
     background-color: #45a049;
 }
-
-
