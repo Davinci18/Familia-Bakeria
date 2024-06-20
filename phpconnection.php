@@ -73,14 +73,22 @@ echo"<script>window.location.href='index.html';
 // Handle forgot password form submission
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if (isset($_POST['reset-email'])) {
-    $reset_email = "Forgot password process has been sent to: ". mysqli_real_escape_string($conn, $_POST['reset-email']) ." Please check your email.";
+    $reset_email = mysqli_real_escape_string($conn, $_POST['reset-email']);
 
-    // Here you would handle the password reset logic, such as sending an email
+    $sql = "SELECT * FROM testing WHERE email = '$reset_email'";
+    $result = mysqli_query($conn,$reset_email);
+
+    if(mysqli_num_rows($result) > 0){
+        $message = "The Forgot password process has been sent to: ".$reset_email;
+    }else{
+        $message = "The email given is not in our database. Create one!";
+    }
+}
+// Here you would handle the password reset logic, such as sending an email
     echo "<script>window.location.href='index.html';
-            confirm('$reset_email');
+            confirm('$message');
         </script>";
         exit();
-}
 }
 
 mysqli_close($conn);
