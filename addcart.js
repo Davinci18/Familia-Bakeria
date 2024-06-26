@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cart-items');//this is to garb the "box" of the cart
     const cartTotal = document.getElementById('cart-total'); //retrieves the format of how to display the total of the cart
     const cartItemTemplate = document.getElementById('cart-item-template');//this is to grab the contents inside the carts
+    const purchaseButton = document.getElementById('purchase-btn'); 
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -41,6 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     });
 
+    purchaseButton.addEventListener('click', () =>{
+
+        if(cart.length === 0 ){
+            alert('The cart is empty. Please add items to the cart before purchasing.');
+        }else{
+            alert('Purchase successful! Thank you for your order.');
+
+        cart = [];
+        saveCart();
+        updateCart();}
+    });
+
     function saveCart() {
         localStorage.setItem('cart', JSON.stringify(cart));
     }
@@ -75,4 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial load of cart from localStorage
     updateCart();
+
 });
